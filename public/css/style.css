@@ -1,0 +1,59 @@
+html,
+body {
+  height: 100%;
+}
+
+/* saipul */
+
+.table-responsive {
+  min-height: 200px;
+}
+
+.action > .dropdown > .dropdown-menu {
+  top: -2px;
+  padding: 0;
+  border: 1px solid #0073b7;
+  border-radius: 0;
+  min-width: 183px;
+}
+
+.action > .dropdown > .dropdown-menu > li > a {
+  padding: 5px 12px;
+  cursor: pointer;
+  color: #0073b7;
+}
+
+.action > .dropdown > .dropdown-menu > li.checkbox {
+  padding: 0px 12px;
+}
+
+.table-list > tbody > tr > td,
+.table-list > tbody > tr > th,
+.table-list > tfoot > tr > td,
+.table-list > tfoot > tr > th,
+.table-list > thead > tr > td,
+.table-list > thead > tr > th {
+  padding: 13px 8px;
+}
+
+.table-list > tbody > tr > td.padding-0 {
+  padding: 0px;
+}
+
+.table-list > tbody > tr > td.action {
+  padding: 8px;
+}
+
+.table-list > tbody > tr > td.column-label {
+  padding: 11px 8px;
+}
+
+.pagination {
+  margin: 0 !important;
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-btn > .btn {
+  border-radius: 0;
+}
+

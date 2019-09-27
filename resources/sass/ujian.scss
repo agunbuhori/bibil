@@ -1,0 +1,441 @@
+body {
+    background-color: #c9c9c9;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.main-wraper {
+    color: #fff;
+}
+
+.site-header {
+    background-color: #0D47A1;
+    padding: 15px;
+    border-bottom: 4px solid #b7b7b7;
+}
+
+.brand {
+    margin-left: 120px;
+
+    h2 {
+        margin: 0;
+    }
+
+    small {
+        font-size: 84%;
+    }
+}
+
+.account-user {
+    background-color: #6b6767;
+    margin: -15px;
+    margin-right: 0px;
+    height: 83px;
+    width: 253px;
+    padding: 15px;
+
+    img {
+        float: left;
+    }
+
+    .data-user {
+        span {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+}
+
+// HEADER
+.site-content {
+    margin-top: 30px;
+    color: #212121;
+}
+
+.box {
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    .box-header {
+        padding: 20px;
+        color: #212121;
+
+        div {
+            h3 {
+                font-size: 18px;
+                float: left;
+                margin: 0;
+                font-weight: 600;
+            }
+    
+            .nomor {
+                color: #fff;
+                background-color: #1565C0;
+                width: 30px;
+                padding: 5px;
+                text-align: center;
+                margin: -5px 10px;
+            }
+
+            .sisa-waktu, .waktu {
+                width: 130px;
+                color: #fff;
+                padding: 9px;
+                text-align: center;
+                margin: -7px 10px;
+                font-size: 15px;
+                margin: -7px 0;
+            }
+
+            .sisa-waktu {
+                background-color: #9E9E9E;
+            }
+
+            .waktu {
+                background-color: #1565C0;
+            }
+        }
+    }
+
+    .box-font {
+        background-color: #b7b7b73d;
+        padding: 10px 20px;
+        border-top: 1px solid #d6d1d1;
+        border-bottom: 1px solid #d6d1d1;
+
+        .ukuran-font {
+            tr {
+                td {
+                    font-size: 12px;
+                    font-weight: 600;
+                    text-align: center;
+                    vertical-align: bottom;
+
+                    .text-12,
+                    .text-14,
+                    .text-16 {
+                        color: #757575;
+                        text-decoration: none;
+                    }
+
+                    .text-12.active,
+                    .text-14.active,
+                    .text-16.active {
+                        color: #212121;
+                        text-decoration: none;
+                    }
+
+                    .text-12 {
+                        font-size: 12px;
+                    }
+                    .text-14 {
+                        font-size: 14px;
+                    }
+                    .text-16 {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .box-body {
+        padding: 35px 20px;
+
+        .box-soal {
+            border: 3px solid #dddddd;
+            padding: 15px;
+            font-size: 14px;
+
+            .soal {
+                p {
+                    margin: 0 0 0px;
+                }
+            }
+
+            .jawaban {
+                margin: 15px;
+
+                table {
+                    tr {
+                        td {
+                            padding: 7px 0;
+                        }
+
+                        .pilihan {
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .box-jawaban-essay {
+        padding: 0px 20px;
+        margin: -25px 0 35px 0;
+        display: none;
+    }
+
+    .box-footer {
+        padding: 15px 20px;
+        border-top: 3px solid #dddddd;
+    }
+}
+
+.box-header:before,
+.box-font:before,
+.box-body:before,
+.box-footer:before,
+.box-header:after,
+.box-font:after,
+.box-body:after,
+.box-footer:after {
+  content: " ";
+  display: table;
+}
+.box-header:after,
+.box-font:after,
+.box-body:after,
+.box-footer:after {
+  clear: both;
+}
+
+// Jawaban
+.jawaban-container {
+    line-height: 28px;
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 28px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.jawaban-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    background-color: transparent;
+    border: 3px solid #BDBDBD;
+    color: #BDBDBD;
+    border-radius: 50%;
+    font-weight: bold;
+
+    div {
+        margin: -2px 0px 0px 6px;
+    }
+}
+
+.jawaban-container:hover input ~ .jawaban-checkmark {
+    background-color: #BDBDBD;
+    border-color: #BDBDBD;
+    color: #ffffff;
+}
+
+.jawaban-container input:checked ~ .jawaban-checkmark {
+    background-color: #1565C0;
+    border-color: #1565C0;
+    color: #ffffff;
+}
+
+.jawaban-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.jawaban-container input:checked ~ .jawaban-checkmark:after {
+    display: block;
+}
+
+// button
+.btn {
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    padding: 8px 14px;
+}
+
+.btn.uppercase {
+    text-transform: uppercase;
+}
+
+.btn.btn-flat {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-width: 1px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.btn.btn-previous {
+    background-color: #757575;
+    color: #fff;
+}
+
+.btn.btn-confuse {
+    background-color: #FFC400;
+    color: #fff;
+}
+
+.btn.btn-next {
+    background-color: #1565C0;
+    color: #fff;
+}
+
+.btn.btn-selesai {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btn.btn-panel-soal {
+    background-color: #E53935;
+    color: #fff;
+    padding: 15px 22px;
+}
+
+.btn.btn-soal {
+    margin-left: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    min-width: 50px;
+    min-height: 50px;
+    position: relative;
+    background-color: transparent;
+    color: #5f5f5f;
+    border: 3px solid #5f5f5f;
+    padding: 10px 13px;
+
+    .btn-soal-jawaban {
+        position: absolute;
+        left: -6px;
+        top: -6px;
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        background-color: #fff;
+        color: #5f5f5f;
+        border: 2px solid #5f5f5f;
+        border-radius: 50%;
+    }
+
+    &:hover {
+        background-color: #1565C0;
+        color: #fff;
+        border-color: #1565C0;
+
+        .btn-soal-jawaban {
+            color: #1565C0;
+            border-color: #1565C0;
+        }
+    }
+}
+
+.btn.btn-soal.saat-ini,
+.btn.btn-soal.terjawab.saat-ini {
+    background-color: #1565C0 !important;
+    color: #fff !important;
+    border-color: #1565C0 !important;
+
+    .btn-soal-jawaban {
+        color: #1565C0 !important;
+        border-color: #1565C0 !important;
+    }
+}
+
+.btn-soal.terjawab {
+    background-color: #5f5f5f !important;
+    color: #fff !important;
+    border-color: #5f5f5f !important;
+
+    .btn-soal-jawaban {
+        color: #5f5f5f !important;
+        border-color: #5f5f5f !important;
+    }
+}
+
+.btn-soal.ragu {
+    background-color: #FFC400 !important;
+    color: #fff !important;
+    border-color: #FFC400 !important;
+
+    .btn-soal-jawaban {
+        color: #FFC400 !important;
+        border-color: #FFC400 !important;
+    }
+}
+
+.list-daftar-soal {
+    width: 335px;
+    height: 400px;
+    position: fixed;
+    top: 130px;
+    right: -335px;
+    background-color: #fff;
+    border: 10px solid #bdbdbd;
+
+    .btn-daftar-soal {
+        position: absolute;
+        left: -61px;
+        top: 50px;
+    }
+    
+    .daftar-soal {
+        padding: 5px;
+        overflow-y: auto;
+        height: 100%;
+
+        .title-soal {
+            color: #fff;
+            padding: 10px 10px 5px 10px;
+            font-weight: 600;
+            margin: -5px -5px 10px -5px;
+            text-align: center;
+        }
+
+        .ganda {
+            border-bottom: 3px solid #1565c0;
+            background-color: #1565c0;
+        }
+
+        .essay {
+            border-bottom: 3px solid #E53935;
+            background-color: #E53935;
+            margin-top: 10px;
+        }
+    }
+}
+
+.slick-disabled {
+    display: none !important;
+}
+
+.swal2-icon-size > .swal2-styled.swal2-confirm {
+    font-size: 3.0625em !important;
+    border-left-color: rgb(212, 212, 212) !important;
+    border-right-color: rgb(212, 212, 212) !important;
+}
+
+.swal2-bg {
+    background-color: transparent;
+}
