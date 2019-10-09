@@ -33,4 +33,11 @@ class UserSiswa extends Model
     {
         return $this->belongsTo('App\Models\Kelas', 'kelas_id', 'id');
     }
+
+    public function ortu()
+    {
+        return $this->hasOne('App\Models\UserOrtu', 'siswa_id', 'id');
+    }
+
+    
 }

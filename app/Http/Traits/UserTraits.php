@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\UserOrtu as Ortu;
 use App\Models\UserGuru as Guru;
 use App\Models\UserSiswa as Siswa;
 
@@ -81,6 +82,30 @@ trait UserTraits
     public function resetPassword($data)
     {
         # code...
+    }
+
+    protected function createOrtu($id, $data)
+    {
+        $ortu = Ortu::create([
+            'user_id'    => $id,
+            'siswa_id'   => $data->siswa_id,
+            'nama'       => $data->nama,
+            'nis'        => $data->nis,
+            'kelamin'    => $data->kelamin,
+            'alamat'     => $data->alamat,
+        ]);
+
+        if (!$ortu) return response()->json([
+            'status'  => false,
+            'message' => 'Gagal menambah ortu',
+            'data'    => null
+        ]);
+
+        return response()->json([
+            'status'  => true,
+            'message' => 'Berhasil menambah ortu',
+            'data'    => $ortu
+        ]);
     }
 
 }

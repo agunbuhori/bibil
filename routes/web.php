@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::match(['get', 'post'], 'register', function(){
+Route::match(['get', 'post'], 'register', function() {
     return redirect('/');
 });
 
@@ -39,6 +39,8 @@ Route::middleware(['verified', 'roles:admin'])->group(function () {
     
     // Kelas
     Route::resource('kelas', 'KelasController')->except(['show', 'create']);
+
+    Route::resource('ortu', 'OrtuController')->except(['create']);
 
     // Ajax
     Route::get('/ajax/kelas', 'AjaxController@kelas')->name('ajax.kelas');
