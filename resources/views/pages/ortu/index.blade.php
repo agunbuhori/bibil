@@ -47,7 +47,6 @@
             <thead class="bg-blue">
               <tr>
                 <th width="35">No</th>
-                <th>NIS</th>
                 <th>Nama</th>
                 <th>Nama Siswa</th>
                 <th width="200">Action</th>
@@ -58,7 +57,6 @@
               @foreach ($ortu as $item) 
               <tr>
                 <td>{{ $no }}</td>
-                <td>{{ $item->nis }}</td>
                 <td>{{ $item->nama }}</td>
                 <td>{{ $item->siswa->nama }}</td>
                 <td class="action">
