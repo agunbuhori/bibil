@@ -10,6 +10,7 @@ class Tagdata extends BaseUtils
     public static function jurusan()
     {
         $jurusan = DB::table('jurusans')->get();
+        // dd($jurusan);
         return parent::tagSelectDB($jurusan, 'id', 'nama_jurusan');
     }
     

@@ -26,6 +26,10 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware(
 // Route For admin
 Route::middleware(['verified', 'roles:admin'])->group(function () {
     
+    // Profile admin
+    Route::get('/dashboard/admin/profile', 'HomeController@showProfileAdmin')->name('profile-admin');
+
+
     // Guru
     Route::resource('guru', 'GuruController')->except(['create']);
     Route::post('/guru/reset/password', 'GuruController@password')->name('guru.password');
@@ -49,6 +53,8 @@ Route::middleware(['verified', 'roles:admin'])->group(function () {
 
 Route::middleware(['verified', 'roles:guru'])->group(function () {
     //
+    Route::get('/ajax/kelas', 'AjaxController@kelas')->name('ajax.kelas');
+    Route::get('/ajax/mapel', 'AjaxController@mapel')->name('ajax.mapel');
 });
 
 Route::middleware(['verified', 'roles:siswa'])->group(function () {
@@ -77,7 +83,7 @@ Route::middleware(['verified', 'roles:admin,guru'])->group(function () {
     Route::resource('mapel', 'MapelController')->except(['show', 'create']);
 
     // Ujian
-    Route::resource('ujian', 'UjianController')->except(['create']);
+    Route::resource('ujian', 'UjianController')/*->except(['create'])*/;
 
     // Soal
     Route::resource('soal', 'SoalController')->except(['create', 'show']);

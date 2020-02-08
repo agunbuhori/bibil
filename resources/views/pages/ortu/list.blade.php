@@ -2,7 +2,6 @@
 @foreach ($ortu as $item) 
 <tr>
     <td>{{ $no }}</td>
-    <td>{{ $item->nis }}</td>
     <td>{{ $item->nama }}</td>
     <td>{{ $item->siswa->nama }}</td>
     <td class="action">

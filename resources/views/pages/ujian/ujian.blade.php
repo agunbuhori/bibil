@@ -28,14 +28,18 @@
               <b>Kelas</b>
             </td>
             <td width="5">:</td>
-            <td>{{ Viewdata::kelas($ujian->kelas_id, 'green', true) }}</td>
+            <td>
+              {{ Viewdata::kelas($ujian->kelas_id, 'green', true) }}
+            </td>
           </tr>
           <tr>
             <td width="200" class="bg-blue">
               <b>Mata Pelajaran</b>
             </td>
             <td width="5">:</td>
-            <td>{!! Viewdata::mapel(json_encode([$ujian->mapel_id]), 'green') !!}</td>
+            <td>
+              {!! Viewdata::mapel(json_encode([$ujian->mapel_id]), 'green') !!}
+            </td>
           </tr>
           <tr>
             <td width="200" class="bg-blue">

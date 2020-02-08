@@ -131,25 +131,29 @@
 @section('javascript')
   {!! HTML::script('plugins/ckeditor/ckeditor.js') !!}
   <script>
-    (function() {
-      CKEDITOR.replace('keterangan');
-      $('[data-tanggal]').datetimepicker({ 
-          format: 'YYYY-MM-DD HH:mm'
-      })
-    })();
-    function clearform() {
-      var modal = $('#ujian'),
-          form  = modal.find('form[name="ujian"]')
+    $(document).ready(function(){
+      (function() {
+        CKEDITOR.replace('keterangan');
+        $('[data-tanggal]').datetimepicker({ 
+            format: 'YYYY-MM-DD HH:mm'
+        })
+      })();
+      function clearform() {
+        var modal = $('#ujian'),
+            form  = modal.find('form[name="ujian"]')
 
-      modal.find('.modal-title').text('Tambah Ujian')
-      form.find('[name]').not('[name="_token"]').val('')
-      form.find('[name="remedial"]').val(0)
-      form.find('#jurusan_id').select2().val('').trigger('change');
-      form.find('#kelas_id').select2().val('').trigger('change');
-      form.find('#mapel_id').select2().val('').trigger('change');
-      CKEDITOR.instances.keterangan.setData('')
-      form.attr('action', '{{ route('ujian.store') }}')
-    }
+        modal.find('.modal-title').text('Tambah Ujian')
+        form.find('[name]').not('[name="_token"]').val('')
+        form.find('[name="remedial"]').val(0)
+        form.find('#jurusan_id').select2().val('').trigger('change');
+        form.find('#kelas_id').select2().val('').trigger('change');
+        form.find('#mapel_id').select2().val('').trigger('change');
+        CKEDITOR.instances.keterangan.setData('')
+        form.attr('action', '{{ route('ujian.store') }}')
+      }
+    })
+    
+    
 
     function listitem() {
       $.ajax({
@@ -296,8 +300,9 @@
       })
     }
 
-    $('#jurusan_id').select2().on('change', (event, params) => {      
+    $('#jurusan_id')/*.select2()*/.on('select2:select', (event, params) => {      
       var jurusan = $("#jurusan_id").val()
+      console.log(301,jurusan)
 
       if (jurusan == '') return false;
       

@@ -8,7 +8,7 @@
       </div>
       <form name="ujian" action="{{ route('ujian.store') }}" method="post">
         @csrf
-        <input name="_method" id="method_action" type="hidden" value="PUT">
+        {{-- <input name="_method" id="method_action" type="hidden" value="PUT"> --}}
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">
@@ -16,7 +16,11 @@
                 <label for="jurusan_id">Jurusan</label>
                 <select name="jurusan_id" id="jurusan_id" class="form-control select2" style="width:100%" required>
                   <option value="">--- Pilih Jurusan ---</option>
-                  {!! Tagdata::jurusan() !!}
+                  {{-- {!! Tagdata::jurusan() !!} --}}
+                  @foreach(\DB::table('jurusans')->get() as $jurusan)
+                  <option value="{{$jurusan->id}}">{{$jurusan->nama_jurusan}}</option>
+                  @endforeach
+                  {{-- {{dd(\DB::table('jurusans')->get())}} --}}
                 </select>
               </div>
               <div class="form-group">

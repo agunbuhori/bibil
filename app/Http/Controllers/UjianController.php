@@ -31,7 +31,7 @@ class UjianController extends Controller
         $ujian->appends($request->only('keyword', 'limit'));
 
         $view = ($request->ajax()) ? 'list.list' : 'index';
-        
+        // dd($ujian);
         return view('pages.ujian.' . $view, compact('ujian', 'request'));
     }
 
@@ -43,7 +43,7 @@ class UjianController extends Controller
      */
     public function store(Request $request)
     {
-        if(!$request->ajax()) return abort(404, 'Page not found!');
+        // if(!$request->ajax()) return abort(404, 'Page not found!');
         
         $request->validate([
             'jurusan_id'  => 'integer|required',
@@ -63,12 +63,12 @@ class UjianController extends Controller
             'message' => 'Gagal menambah ujian',
             'data'    => null
         ]);
-
-        return response()->json([
-            'status'  => true,
-            'message' => 'Berhasil menambah ujian',
-            'data'    => $ujian
-        ]);
+        // return response()->json([
+        //         'status'  => true,
+        //         'message' => 'Berhasil menambah ujian',
+        //         'data'    => $ujian
+        //     ]);
+        return redirect('/ujian');
     }
 
     /**
@@ -195,7 +195,9 @@ class UjianController extends Controller
 
     private function conditionsMapel()
     {
-        if (Auth::user()->role !== 'guru') return "mapel_id IS NOT NULL";
+        // if (Auth::user()->role !== 'guru') {
+            return "mapel_id IS NOT NULL";
+        // }
 
         $result = '';
         $mapels = json_decode(Auth::user()->guru->mapel);
