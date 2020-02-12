@@ -16,10 +16,10 @@
             <label for="soal">Text Soal</label>
             <textarea name="soal" id="soal" rows="4" class="form-control" placeholder="Text Soal Ujian ..." required></textarea>
           </div>
-          <div class="form-group form-essay">
+          <!-- <div class="form-group form-essay">
             <label for="kunci_jawaban">Kunci Jawaban</label>
             <textarea name="kunci" id="kunci_jawaban" rows="4" class="form-control" placeholder="Text Soal Ujian ..." required></textarea>
-          </div>
+          </div> -->
           <div class="form-group form-ganda">
             <label for="jawaban_a">Jawaban A</label>
             <input type="text" name="a" id="jawaban_a" class="form-control" placeholder="Jawaban A">
@@ -42,7 +42,7 @@
           </div>
           <div class="form-group form-ganda">
             <label for="kunci_jawaban">Kunci Jawaban</label>
-            <select name="kunci" id="kunci_jawaban" class="form-control">
+            <select name="kunci_jawaban" id="kunci_jawaban" class="form-control">
               <option value="">--- Kunci Jawaban ---</option>
               <option value="a">A</option>
               <option value="b">B</option>
